@@ -1,0 +1,15 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/Questao1/obj/project.assets.json
+/Questao1/obj/project.nuget.cache
+/Questao1/obj/Questao1.csproj.nuget.dgspec.json
+/Questao2/obj/project.nuget.cache
+/Questao2/obj/project.assets.json
+/Questao2/obj/Questao2.csproj.nuget.dgspec.json
+/.vs/Exercicio/FileContentIndex/49dcd7b5-e3ec-44a1-8350-432ac1d90aea.vsidx
+/.vs/Exercicio/FileContentIndex/read.lock
+/Questao5/obj/project.assets.json
+/Questao5/obj/project.nuget.cache
+/Questao5/obj/Questao5.csproj.nuget.dgspec.json
