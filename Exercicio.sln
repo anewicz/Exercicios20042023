@@ -9,6 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Questao2", "Questao2\Questa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Questao3", "Questao3", "{2BB7EE80-1BF0-49A3-BDB2-2E9D04439829}"
 	ProjectSection(SolutionItems) = preProject
+		AVISO.txt = AVISO.txt
 		Questao3\Questões 3.docx = Questao3\Questões 3.docx
 	EndProjectSection
 EndProject

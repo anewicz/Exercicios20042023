@@ -1,0 +1,2 @@
+Os comandos foram executados utilizando este mesmo repositório então é possivel ver a branch testing e os arquivos e commits que foram gerados.
+Os registros são os iniciais.
