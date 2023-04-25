@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Questao5</name>
+    </assembly>
+    <members>
+        <member name="M:Questao5.Infrastructure.Services.Controllers.ContaCorrenteController.GetSaldoContaCorrentePorIdAsync(System.String)">
+            <summary>
+            Realiza a consulta de saldo da conta corrente pelo Id da conta corrente ex: FA99D033-7067-ED11-96C6-7C5DFA4A16C9
+            </summary>
+            <param name="contaCorrenteId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Questao5.Infrastructure.Services.Controllers.MovimentoController.AddMovimentacaoAsync(Questao5.Application.Queries.AddMovimentacaoQuery)">
+            <summary>
+            Realiza a movimentação de contas, com valores do tipo Crédito ou Débito, TipoMovimento deve ser passado do seguinte modo  0 = Debito e 1 = Credito 
+            </summary>
+            <param name="movimentacaoQuery"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
