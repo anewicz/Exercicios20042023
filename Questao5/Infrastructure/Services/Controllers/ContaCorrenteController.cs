@@ -20,15 +20,12 @@ namespace Questao5.Infrastructure.Services.Controllers
             MediatorService = mediatorService;
         }
 
-        [HttpGet("getcontacorrente/{contaCorrenteId}")]
-        [ProducesResponseType(typeof(GetContaCorrenteQueryResponse), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetContaCorrenteIdAsync(string contaCorrenteId)
-        {
-            var response = await MediatorService.Send(new GetContaCorrenteQuery() { idcontacorrente = contaCorrenteId });
-            return Ok(response);
-        }
-
-        [HttpGet("getsaldocontacorrente/{contaCorrenteId}")]
+        /// <summary>
+        /// Realiza a consulta de saldo da conta corrente pelo Id 
+        /// </summary>
+        /// <param name="contaCorrenteId"></param>
+        /// <returns></returns>
+        [HttpGet("consultarsaldo/{contaCorrenteId}")]
         [ProducesResponseType(typeof(GetSaldoContaCorrenteQuery), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetSaldoContaCorrentePorIdAsync(string contaCorrenteId)
         {

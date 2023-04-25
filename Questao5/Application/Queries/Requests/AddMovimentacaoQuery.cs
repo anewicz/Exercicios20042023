@@ -14,6 +14,6 @@ namespace Questao5.Application.Queries
         public TipoMovimento TipoMovimentacao { get; set; }
 
         [JsonProperty("Valor")]
-        public double Valor { get; set; }
+        public Double Valor { get; set; }
     }
 }

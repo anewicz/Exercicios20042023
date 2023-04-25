@@ -13,7 +13,7 @@ namespace Questao5.Application.Queries
         public string nome { get; set; }
 
         [JsonProperty("ValorSaldo")]
-        public double valorSaldo { get; set; }
+        public decimal valorSaldo { get; set; }
 
         [JsonProperty("DataConsulta")]
         public string dataConsulta { get; set; }

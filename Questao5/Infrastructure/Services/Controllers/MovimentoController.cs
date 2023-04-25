@@ -28,7 +28,7 @@ namespace Questao5.Infrastructure.Services.Controllers
         /// </summary>
         /// <param name="movimentacaoQuery"></param>
         /// <returns></returns>
-        [HttpPost("addmovimentacao")]
+        [HttpPost("inserir")]
         [ProducesResponseType(typeof(AddMovimentacaoQueryResponse), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> AddMovimentacaoAsync(AddMovimentacaoQuery movimentacaoQuery)
         {

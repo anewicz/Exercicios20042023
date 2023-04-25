@@ -22,7 +22,7 @@ namespace Questao5.Infrastructure.Database.Repositories
             using var connection = new SqliteConnection(databaseConfig.Name);
             string query = @$"SELECT * 
                               FROM contacorrente
-                              WHERE idcontacorrente = '{request.idcontacorrente.ToString().ToUpper()}'";                
+                              WHERE idcontacorrente = '{request.idcontacorrente}'";                
 
             var result = connection.QueryAsync<GetContaCorrenteQueryResponse>(query).Result?.FirstOrDefault();
 
@@ -34,14 +34,22 @@ namespace Questao5.Infrastructure.Database.Repositories
         {
             using var connection = new SqliteConnection(databaseConfig.Name);
             string query = @$"SELECT 
-                              c.numero,
-                              c.nome,
-                              DATETIME() 'dataConsulta',
-                              (SELECT SUM(COALESCE(valor, 0)) FROM movimento WHERE idcontacorrente = c.idcontacorrente AND tipomovimento = 'C')
-                              - (SELECT SUM(COALESCE(valor, 0)) FROM movimento WHERE idcontacorrente = c.idcontacorrente AND tipomovimento = 'D') AS valorSaldo
-                              FROM contacorrente c
-                              WHERE c.idcontacorrente = '{request.idcontacorrente.ToString().ToUpper()}'
-                              AND c.ativo = 1";
+                            c.numero,
+                            c.nome,
+                            DATETIME() 'dataConsulta',
+                            COALESCE(SUM(m.valor_credito), 0) - COALESCE(SUM(m.valor_debito), 0) AS valorSaldo
+                            FROM contacorrente c
+                            LEFT JOIN (
+                            SELECT 
+                                idcontacorrente,
+                                SUM(CASE WHEN tipomovimento = 'C' THEN COALESCE(valor, 0) ELSE 0 END) AS valor_credito,
+                                SUM(CASE WHEN tipomovimento = 'D' THEN COALESCE(valor, 0) ELSE 0 END) AS valor_debito
+                            FROM movimento
+                            GROUP BY idcontacorrente
+                            ) m ON c.idcontacorrente = m.idcontacorrente
+                            WHERE c.idcontacorrente = '{request.idcontacorrente}'
+                            AND c.ativo = 1
+                            GROUP BY c.numero, c.nome ";
 
             var result = connection.QueryAsync<GetSaldoContaCorrenteQueryResponse>(query).Result?.FirstOrDefault();
 

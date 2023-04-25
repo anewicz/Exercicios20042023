@@ -6,6 +6,7 @@ using Questao5.Domain.Enumerators;
 using Questao5.Infrastructure.Database.Interfaces;
 using Questao5.Infrastructure.Sqlite;
 using System.Drawing;
+using System.Globalization;
 
 namespace Questao5.Infrastructure.Database.Repositories
 {
@@ -30,7 +31,7 @@ namespace Questao5.Infrastructure.Database.Repositories
                 idcontacorrente = request.IdContaCorrente,
                 datamovimento = DateTime.Now,
                 tipomovimento = (request.TipoMovimentacao == TipoMovimento.Debit) ? 'D' : 'C',
-                valor = request.Valor
+                valor = request.Valor.ToString("###.##", new CultureInfo("en-US"))
             };
 
 
@@ -45,11 +46,7 @@ namespace Questao5.Infrastructure.Database.Repositories
                             , '{parameters.idcontacorrente}'
                             , '{parameters.datamovimento}'
                             , '{parameters.tipomovimento}'
-                            ,  {parameters.valor}) ";
-
-
-
-
+                            ,  {parameters.valor} )";
 
             try
             {
