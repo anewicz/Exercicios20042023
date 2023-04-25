@@ -21,7 +21,7 @@ namespace Questao5.Infrastructure.Services.Controllers
         }
 
         /// <summary>
-        /// Realiza a consulta de saldo da conta corrente pelo Id 
+        /// Realiza a consulta de saldo da conta corrente pelo Id da conta corrente ex: FA99D033-7067-ED11-96C6-7C5DFA4A16C9
         /// </summary>
         /// <param name="contaCorrenteId"></param>
         /// <returns></returns>

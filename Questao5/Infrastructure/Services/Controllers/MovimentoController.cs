@@ -24,7 +24,7 @@ namespace Questao5.Infrastructure.Services.Controllers
         }
 
         /// <summary>
-        /// Realiza a movimentação de contas, com valores do tipo Crédito ou Débito, TipoMovimento pode ser 0 = Debito e 1 = Credito 
+        /// Realiza a movimentação de contas, com valores do tipo Crédito ou Débito, TipoMovimento deve ser passado do seguinte modo  0 = Debito e 1 = Credito 
         /// </summary>
         /// <param name="movimentacaoQuery"></param>
         /// <returns></returns>
@@ -33,7 +33,6 @@ namespace Questao5.Infrastructure.Services.Controllers
         public async Task<IActionResult> AddMovimentacaoAsync(AddMovimentacaoQuery movimentacaoQuery)
         {
             GetContaCorrenteQueryResponse contaCorrente = await MediatorService.Send(new GetContaCorrenteQuery() { idcontacorrente = movimentacaoQuery.IdContaCorrente });
-            //GetContaCorrenteQueryResponse contaCorrente = await _contaCorrenteRepository.GetContaCorrentePorId(new GetContaCorrenteQuery() { idcontacorrente = movimentacaoQuery.IdContaCorrente });
 
             if (contaCorrente == null || contaCorrente?.idcontacorrente == null)
                 return BadRequest(new ErrorQueryResponse() { Erro = "Apenas contas correntes cadastradas podem receber movimentação", TipoFalha = "INVALID_ACCOUNT" });
